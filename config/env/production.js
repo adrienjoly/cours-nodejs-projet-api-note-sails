@@ -1,3 +1,5 @@
+const dotenv = require("dotenv");
+dotenv.config();
 /**
  * Production environment settings
  * (sails.config.*)

@@ -1,3 +1,5 @@
+const dotenv = require("dotenv");
+dotenv.config();
 /**
  * Datastores
  * (sails.config.datastores)
@@ -33,7 +35,8 @@ module.exports.datastores = {
   ***************************************************************************/
 
   default: {
-
+    adapter: 'sails-mongo',
+    url: process.env.MONGO_URI
     /***************************************************************************
     *                                                                          *
     * Want to use a different database during development?                     *
