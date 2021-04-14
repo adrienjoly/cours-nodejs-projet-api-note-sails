@@ -8,6 +8,8 @@
  * https://sailsjs.com/docs/concepts/policies
  */
 
+const isAuthorized = require("../api/policies/isAuthorized");
+
 module.exports.policies = {
 
   /***************************************************************************
@@ -17,6 +19,10 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': [isAuthorized],
+  'UserController': {
+    'login': true,
+    'signup': true,
+  }
 
 };
