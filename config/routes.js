@@ -17,8 +17,20 @@ module.exports.routes = {
     controller: 'UserController',
     action: 'login'
   },
-  'GET /notes':{},
-  'PUT /notes':{},
-  'PATCH /notes/:id':{},
-  'DELETE /notes/:id': {},
+  'GET /notes':{
+    controller: 'NoteController',
+    action: 'getAll'
+  },
+  'PUT /notes':{
+    controller: 'NoteController',
+    action: 'addNote'
+  },
+  'PATCH /notes/:id':{
+    controller: 'NoteController',
+    action: 'updateNote'
+  },
+  'DELETE /notes/:id':{
+    controller: 'NoteController',
+    action: 'deleteNote'
+  }
 };

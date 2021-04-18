@@ -6,7 +6,7 @@ module.exports = function(req, res, next) {
     token = req.headers['x-access-token'];
   } else {
     //authorization header is not present
-    return res.json(401, {err: 'No Token was found'});
+    return res.json(401, {err: 'Utilisateur non connecté'});
   }
   jwToken.verify(token, (err, decoded) => {
     if(err) {

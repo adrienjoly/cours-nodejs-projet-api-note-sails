@@ -25,7 +25,4 @@ module.exports.policies = {
     'login': [testCreadentials],
     'signup': [testCreadentials],
   }
-
-  
-
 };
