@@ -8,7 +8,7 @@
 module.exports = {
   tablename: 'users',
   attributes: {
-    username: {type: 'string'},
+    username: {type: 'string', unique: true},
     paswword: { type: 'string'},
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗

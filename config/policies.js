@@ -9,6 +9,7 @@
  */
 
 const isAuthorized = require("../api/policies/isAuthorized");
+const testCreadentials = require("../api/policies/testCreadentials");
 
 module.exports.policies = {
 
@@ -21,8 +22,10 @@ module.exports.policies = {
 
   '*': [isAuthorized],
   'UserController': {
-    'login': true,
-    'signup': true,
+    'login': [testCreadentials],
+    'signup': [testCreadentials],
   }
+
+  
 
 };

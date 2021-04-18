@@ -13,8 +13,12 @@ module.exports.routes = {
     controller: 'UserController',
     action: 'signup'
   },
-  'POST /login': {
+  'POST /signin': {
     controller: 'UserController',
     action: 'login'
-  }
+  },
+  'GET /notes':{},
+  'PUT /notes':{},
+  'PATCH /notes/:id':{},
+  'DELETE /notes/:id': {},
 };

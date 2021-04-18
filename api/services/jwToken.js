@@ -1,6 +1,6 @@
 var jwt = require('jsonwebtoken');
 var dotenv = require('dotenv');
-dotenv.config()
+dotenv.config();
 module.exports = {
   'sign': function(payload) {
     return jwt.sign({

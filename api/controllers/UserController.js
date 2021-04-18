@@ -13,7 +13,7 @@ module.exports = {
     let db = sails.getDatastore().manager;
     let user = await db.collection('users').findOne({username: username});
     if(user !== null){
-      res.forbidden('User already registered in database');
+      res.status(400).send({error: 'Cet identifiant est déjà associé à un compte'});
       return;
     }
     try {
@@ -34,30 +34,33 @@ module.exports = {
   },
 
   'login': async function(req, res) {
+    let {username, password} = req.body;
     let db = sails.getDatastore().manager;
-    const {username, password} = req.body;
     let user;
+    user = await db.collection('users').findOne({username: username});
     try {
-      user = await db.collection('users').findOne({username: username});
-      console.log(user);
+      if(user) {
+        //console.log(user._id);
+        let result = bcrypt.compareSync(password, user.password);
+        if(result){
+          res.json({
+            error: null,
+            token: jwToken.sign(user._id)
+          });
+          return;
+        }else{
+          res.status(403).send({error: 'Les mots de passses ne correspondent pas'});
+          return;
+        }
+      } else {
+        res.status(403).send({error: 'Cet identifiant est inconnu'});
+        return;
+      }
     } catch (error) {
       console.error(error);
-      res.json({
-        status: 404,
-        message: 'Couldn\'t find you in our database'
-      });
+      res.status(403).send({error});
       return;
     }
-    bcrypt.compare(password, user.password, (err, result) => {
-      if(result) {
-        return res.json({
-          user:user.username,
-          token: jwToken.sign(user)
-        });
-      } else if(err) {
-        return res.forbidden({err: 'Username and password combination do not match'});
-      }
-    });
   },
   'check': function(req, res) {
     return res.json(req.user);
