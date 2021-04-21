@@ -1,5 +1,4 @@
 var bcrypt = require('bcrypt');
-const Users = require('../models/Users');
 /**
  * UserController
  *
@@ -40,7 +39,6 @@ module.exports = {
     user = await db.collection('users').findOne({username: username});
     try {
       if(user) {
-        //console.log(user._id);
         let result = bcrypt.compareSync(password, user.password);
         if(result){
           res.json({

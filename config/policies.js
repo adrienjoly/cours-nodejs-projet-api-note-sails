@@ -20,7 +20,8 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  '*': [isAuthorized], 
+  '*': [isAuthorized],
+
   'UsersController': {
     'signin': [testCreadentials],
     'signup': [testCreadentials],
