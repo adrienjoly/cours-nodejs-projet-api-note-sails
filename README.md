@@ -48,8 +48,8 @@ npm install
   _Réponse_:
   ```json
   {
-    "error": null || {error Message},
-    "token": {Token Génrer par l'API}
+    "error": "null || {error Message}",
+    "token": "{Token Génrer par l'API}"
   }
   ```
 - **'POST /signin'**  
@@ -64,8 +64,8 @@ npm install
   _Réponse_:
   ```json
   {
-    "error": null || {error Message},
-    "token": {Token Génrer par l'API}
+    "error": "null || {error Message}",
+    "token": "{Token Génrer par l'API}"
   }
   ```
 - **'GET /notes'**
@@ -75,8 +75,8 @@ npm install
 
   ```json
   {
-    "error": null || {error Message},
-    "notes": {Tableau de Notes}
+    "error": "null || {error Message}",
+    "notes": "{Tableau de Notes}"
   }
   ```
 
@@ -95,8 +95,8 @@ npm install
 
   ```json
   {
-    "error": null || {error Message},
-    "note": {Note nouvellement créer}
+    "error": "null || {error Message}",
+    "note": "{Note nouvellement créer}"
   }
   ```
 
@@ -115,8 +115,8 @@ npm install
 
   ```json
   {
-    "error": null || {error Message},
-    "note": {Note nouvellement éditer}
+    "error": "null || {error Message}",
+    "note": "{Note nouvellement éditer}"
   }
   ```
 
@@ -135,7 +135,7 @@ npm install
 
   ```json
   {
-    "error": null || {error Message},
-    "note": {Note supprimer}
+    "error": "null || {error Message}",
+    "note": "{Note supprimer}"
   }
   ```
