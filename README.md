@@ -53,7 +53,7 @@ npm install
   }
   ```
 - **'POST /signin'**  
-  _Fonction_: Créer un nouvel utilisateur  
+  _Fonction_: Se connecter à l'API  
   _Corps de la requête_:
   ```json
   {
@@ -69,7 +69,7 @@ npm install
   }
   ```
 - **'GET /notes'**  
-  _Fonction_: Créer un nouvel utilisateur  
+  _Fonction_: Récupérer ses notes  
   _Header_: `'x-access-token': {Token Générer par l'API}`  
   _Réponse_:
 
@@ -81,7 +81,7 @@ npm install
   ```
 
 - **'PUT /notes'**  
-  _Fonction_: Créer un nouvel utilisateur  
+  _Fonction_: Ajouter une note  
   _Header_: `'x-access-token': {Token Générer par l'API}`  
   _Corps de la requête_:
 
@@ -101,7 +101,7 @@ npm install
   ```
 
 - **'PATCH /notes/:id'**  
-  _Fonction_: Créer un nouvel utilisateur  
+  _Fonction_: Éditer une note  
   _Header_: `'x-access-token': {Token Générer par l'API}`  
   _Corps de la requête_:
 
@@ -121,7 +121,7 @@ npm install
   ```
 
 - **'DELETE /notes/:id'**  
-  _Fonction_: Créer un nouvel utilisateur  
+  _Fonction_: Supprimer une note  
   _Header_: `'x-access-token': {Token Générer par l'API}`  
   _Corps de la requête_:
 
