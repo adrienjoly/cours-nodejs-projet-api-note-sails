@@ -68,7 +68,7 @@ npm install
     "token": "{Token Génrer par l'API}"
   }
   ```
-- **'GET /notes'**
+- **'GET /notes'**  
   _Fonction_: Créer un nouvel utilisateur  
   _Header_: `'x-access-token': {Token Générer par l'API}`  
   _Réponse_:
@@ -80,7 +80,7 @@ npm install
   }
   ```
 
-- **'PUT /notes'**
+- **'PUT /notes'**  
   _Fonction_: Créer un nouvel utilisateur  
   _Header_: `'x-access-token': {Token Générer par l'API}`  
   _Corps de la requête_:
@@ -100,7 +100,7 @@ npm install
   }
   ```
 
-- **'PATCH /notes/:id'**
+- **'PATCH /notes/:id'**  
   _Fonction_: Créer un nouvel utilisateur  
   _Header_: `'x-access-token': {Token Générer par l'API}`  
   _Corps de la requête_:
@@ -120,7 +120,7 @@ npm install
   }
   ```
 
-- **'DELETE /notes/:id'**
+- **'DELETE /notes/:id'**  
   _Fonction_: Créer un nouvel utilisateur  
   _Header_: `'x-access-token': {Token Générer par l'API}`  
   _Corps de la requête_:
