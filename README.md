@@ -36,9 +36,8 @@ npm install
 
 ### Endoints
 
-- 'POST /signup'  
+- **'POST /signup'**  
   _Fonction_: Créer un nouvel utilisateur  
-  _Header_: aucun  
   _Corps de la requête_:
   ```json
   {
@@ -46,16 +45,15 @@ npm install
     "password": "{password}"
   }
   ```
-  Réponse:
+  _Réponse_:
   ```json
   {
     "error": null || {error Message},
     "token": {Token Génrer par l'API}
   }
   ```
-- 'POST /signin'  
+- **'POST /signin'**  
   _Fonction_: Créer un nouvel utilisateur  
-  _Header_: aucun  
   _Corps de la requête_:
   ```json
   {
@@ -63,17 +61,17 @@ npm install
     "password": "{password}"
   }
   ```
-  Réponse:
+  _Réponse_:
   ```json
   {
     "error": null || {error Message},
     "token": {Token Génrer par l'API}
   }
   ```
-- 'GET /notes'
-  Fonction: Créer un nouvel utilisateur  
-  Header: `'x-access-token': {Token Générer par l'API}`  
-  Réponse:
+- **'GET /notes'**
+  _Fonction_: Créer un nouvel utilisateur  
+  _Header_: `'x-access-token': {Token Générer par l'API}`  
+  _Réponse_:
 
   ```json
   {
@@ -82,10 +80,10 @@ npm install
   }
   ```
 
-- 'PUT /notes'
-  Fonction: Créer un nouvel utilisateur  
-  Header: aucun  
-  Corps de la requête:
+- **'PUT /notes'**
+  _Fonction_: Créer un nouvel utilisateur  
+  _Header_: `'x-access-token': {Token Générer par l'API}`  
+  _Corps de la requête_:
 
   ```json
   {
@@ -93,10 +91,19 @@ npm install
   }
   ```
 
-- 'PATCH /notes/:id'
-  Fonction: Créer un nouvel utilisateur  
-  Header: aucun  
-  Corps de la requête:
+  _Réponse_:
+
+  ```json
+  {
+    "error": null || {error Message},
+    "note": {Note nouvellement créer}
+  }
+  ```
+
+- **'PATCH /notes/:id'**
+  _Fonction_: Créer un nouvel utilisateur  
+  _Header_: `'x-access-token': {Token Générer par l'API}`  
+  _Corps de la requête_:
 
   ```json
   {
@@ -104,12 +111,31 @@ npm install
   }
   ```
 
-- 'DELETE /notes/:id'
-  Fonction: Créer un nouvel utilisateur  
-  Header: aucun  
-  Corps de la requête:
+  _Réponse_:
+
+  ```json
+  {
+    "error": null || {error Message},
+    "note": {Note nouvellement éditer}
+  }
+  ```
+
+- **'DELETE /notes/:id'**
+  _Fonction_: Créer un nouvel utilisateur  
+  _Header_: `'x-access-token': {Token Générer par l'API}`  
+  _Corps de la requête_:
+
   ```json
   {
     "content": "{Contenue de la note}"
+  }
+  ```
+
+  _Réponse_:
+
+  ```json
+  {
+    "error": null || {error Message},
+    "note": {Note supprimer}
   }
   ```
