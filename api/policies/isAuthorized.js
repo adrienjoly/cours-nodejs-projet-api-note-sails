@@ -6,11 +6,11 @@ module.exports = function(req, res, next) {
     token = req.headers['x-access-token'];
   } else {
     //authorization header is not present
-    return res.json(401, {err: 'Utilisateur non connecté'});
+    return res.json(401, {error: 'Utilisateur non connecté'});
   }
   jwToken.verify(token, (err, decoded) => {
     if(err) {
-      return res.status(401).send({err: 'Invalid token'});
+      return res.status(401).send({error: 'Invalid token'});
     }
     req.user = decoded;
     next();
