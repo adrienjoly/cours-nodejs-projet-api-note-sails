@@ -1,5 +1,5 @@
 var bcrypt = require('bcrypt');
-const User = require('../models/User');
+const Users = require('../models/Users');
 /**
  * UserController
  *
@@ -10,15 +10,15 @@ const User = require('../models/User');
 module.exports = {
   'signup': async function(req, res) {
     let {username, password}= req.body;
-    let db = sails.getDatastore().manager;
-    let user = await db.collection('users').findOne({username: username});
-    if(user !== null){
+    let user = await sails.models.users.findOne({username: username});
+    if(user){
       res.status(400).send({error: 'Cet identifiant est déjà associé à un compte'});
       return;
     }
+    let insertedUser;
     try {
       password = bcrypt.hashSync(password, 5);
-      await db.collection('users').insertOne({username: username, password: password});
+      insertedUser = await sails.models.users.create({username: username, password: password}).fetch();
     } catch (error) {
       console.error(error);
       res.json({
@@ -28,15 +28,15 @@ module.exports = {
       return;
     }
     res.json({
-      status: 201,
-      message: 'User registered'
+      error: null,
+      token: jwToken.sign(insertedUser._id)
     });
   },
 
   'login': async function(req, res) {
     let {username, password} = req.body;
-    let db = sails.getDatastore().manager;
     let user;
+    let db = sails.getDatastore().manager;
     user = await db.collection('users').findOne({username: username});
     try {
       if(user) {

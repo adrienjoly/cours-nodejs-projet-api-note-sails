@@ -9,28 +9,32 @@
  */
 
 module.exports.routes = {
+  'POST /check':{
+    controller: 'UsersController',
+    action: 'check'
+  },
   'POST /signup':{
-    controller: 'UserController',
+    controller: 'UsersController',
     action: 'signup'
   },
   'POST /signin': {
-    controller: 'UserController',
+    controller: 'UsersController',
     action: 'login'
   },
   'GET /notes':{
-    controller: 'NoteController',
+    controller: 'NotesController',
     action: 'getAll'
   },
   'PUT /notes':{
-    controller: 'NoteController',
+    controller: 'NotesController',
     action: 'addNote'
   },
   'PATCH /notes/:id':{
-    controller: 'NoteController',
+    controller: 'NotesController',
     action: 'updateNote'
   },
   'DELETE /notes/:id':{
-    controller: 'NoteController',
+    controller: 'NotesController',
     action: 'deleteNote'
   }
 };

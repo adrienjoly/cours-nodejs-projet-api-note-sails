@@ -5,7 +5,7 @@ module.exports = {
   'sign': function(payload) {
     return jwt.sign({
       data: payload
-    }, process.env.JWT_KEY, {expiresIn: '24h'});
+    }, process.env.JWT_KEY, { algorithm: 'HS256',expiresIn: '24h'});
   },
   'verify': function(token, callback) {
     jwt.verify(token, process.env.JWT_KEY, callback);

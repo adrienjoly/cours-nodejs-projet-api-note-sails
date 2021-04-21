@@ -5,11 +5,9 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
-const Note = require("../models/Note");
-let jwToken = require("../services/jwToken");
+let jwToken = require('../services/jwToken');
 module.exports = {
   'addNote': async function (req, res){
-    let db = sails.getDatastore().manager;
     let {content} = req.body;
     let token = req.headers['x-access-token'];
     let decoded;
@@ -21,24 +19,21 @@ module.exports = {
         decoded = res;
       }
     });
+    //console.log(sails.models.notes);
     try {
-      let note = await db.collection('notes').insertOne({content: content, userId: decoded.data});
-      data = {
-        _id: note.ops[0]._id,
-        content: note.ops[0].content
-      }
-      console.log(note.ops[0]);
+      let note = await sails.models.notes.create({content: content, userId: decoded.data}).fetch();
+      console.log(note);
+      //console.log(note.ops[0]);
       res.status(201).json({
         error: null,
-        note: data
+        note
       });
     } catch (error) {
       console.error(error);
     }
   },
 
-  'getAll': async function (req, res) {
-    let db = sails.getDatastore().manager;
+  'getAll': async function (req, res){
     let token = req.headers['x-access-token'];
     let decoded;
     jwToken.verify(token, (err, res) => {
@@ -50,7 +45,9 @@ module.exports = {
       }
     });
     try {
-      let notes = await Note.find({userId:decoded.data}).sort([{createdAt: 'DESC'}]);
+      //console.log(await Notes.findOne());
+      let notes = await sails.models.notes.find({userId:decoded.data}).sort([{ createdAt: 'DESC' },]);
+      console.log(notes);
       res.status(200).json({
         error: null,
         notes
@@ -62,9 +59,8 @@ module.exports = {
       });
     }
   },
-  
+
   'updateNote': async function (req, res){
-    let db = sails.getDatastore().manager;
     let {content} = req.body;
     let token = req.headers['x-access-token'];
     let decoded;
@@ -76,7 +72,7 @@ module.exports = {
         decoded = res;
       }
     });
-    let note = await Note.findOne({id: req.params.id});
+    let note = await sails.models.notes.findOne({id: req.params.id});
     console.log(req.params.id);
     console.log(note);
     try {
@@ -87,22 +83,21 @@ module.exports = {
         res.status(403).send('Accès non autorisé à cette note');
         return;
       }
-      let updatedNote = await Note.update(req.params.id, {content: content});
+      let updatedNote = await sails.models.notes.update(req.params.id, {content: content}).fetch();
       res.status(200).json({
         error: null,
         note: updatedNote
-      })
+      });
     } catch (error) {
       console.log(error);
       res.status(403).send({
         error: error
-      })
+      });
     }
   },
 
 
   'deleteNote': async function (req, res){
-    let db = sails.getDatastore().manager;
     let token = req.headers['x-access-token'];
     let decoded;
     jwToken.verify(token, (err, res) => {
@@ -113,9 +108,7 @@ module.exports = {
         decoded = res;
       }
     });
-    let note = await Note.deleteOne({id: req.params.id});
-    console.log(req.params.id);
-    console.log(note);
+    let note = await sails.models.notes.findOne({id: req.params.id});
     try {
       if(!note) {
         res.status(404).send('Cet identifiant est inconnu');
@@ -124,7 +117,7 @@ module.exports = {
         res.status(403).send('Accès non autorisé à cette note');
         return;
       }
-      let deletedNote = await Note.deleteOne(req.params.id);
+      let deletedNote = await sails.models.notes.destroyOne(req.params.id).fetch();
       res.status(200).send({
         error: null,
         note: deletedNote
@@ -133,7 +126,7 @@ module.exports = {
       console.error(error);
       res.status(403).send({
         error: error
-      })
+      });
     }
   },
 

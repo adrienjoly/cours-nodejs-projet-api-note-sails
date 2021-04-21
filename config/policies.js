@@ -8,8 +8,8 @@
  * https://sailsjs.com/docs/concepts/policies
  */
 
-const isAuthorized = require("../api/policies/isAuthorized");
-const testCreadentials = require("../api/policies/testCreadentials");
+const isAuthorized = require('../api/policies/isAuthorized');
+const testCreadentials = require('../api/policies/testCreadentials');
 
 module.exports.policies = {
 
@@ -20,9 +20,9 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  '*': [isAuthorized],
-  'UserController': {
-    'login': [testCreadentials],
+  '*': [isAuthorized], 
+  'UsersController': {
+    'signin': [testCreadentials],
     'signup': [testCreadentials],
   }
 };

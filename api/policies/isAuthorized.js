@@ -10,7 +10,7 @@ module.exports = function(req, res, next) {
   }
   jwToken.verify(token, (err, decoded) => {
     if(err) {
-      return res.json(401, {err: 'Invalid token'});
+      return res.status(401).send({err: 'Invalid token'});
     }
     req.user = decoded;
     next();
