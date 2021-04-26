@@ -36,6 +36,7 @@ module.exports.datastores = {
 
   default: {
     adapter: 'sails-mongo',
+    database: 'notes-api',
     url: process.env.MONGODB_URI
     /***************************************************************************
     *                                                                          *
