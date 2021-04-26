@@ -36,7 +36,7 @@ module.exports.datastores = {
 
   default: {
     adapter: 'sails-mongo',
-    url: process.env.MONGO_URI
+    url: process.env.MONGODB_URI
     /***************************************************************************
     *                                                                          *
     * Want to use a different database during development?                     *
