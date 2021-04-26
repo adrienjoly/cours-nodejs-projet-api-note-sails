@@ -1,0 +1,187 @@
+Docker Compose is now in the Docker CLI, try `docker compose up`
+
+Attaching to note-api_api_1, note-api_tests_1
+[36mapi_1    |[0m npm install
+[33mtests_1  |[0m waiting for server...
+[33mtests_1  |[0m npx: installed 13 in 14.132s
+[36mapi_1    |[0m up to date in 25.168s
+[36mapi_1    |[0m 
+[36mapi_1    |[0m 15 packages are looking for funding
+[36mapi_1    |[0m   run `npm fund` for details
+[36mapi_1    |[0m 
+[36mapi_1    |[0m npm start
+[36mapi_1    |[0m 
+[36mapi_1    |[0m > note-api@0.0.0 start /home/node/app
+[36mapi_1    |[0m > NODE_ENV=production node app.js
+[36mapi_1    |[0m 
+[36mapi_1    |[0m debug: Please note: since `sails.config.session.cookie.secure` is set to `true`, the session cookie 
+[36mapi_1    |[0m debug: will _only_ be sent over TLS connections (i.e. secure https:// requests).
+[36mapi_1    |[0m debug: Requests made via http:// will not include a session cookie!
+[36mapi_1    |[0m debug: 
+[36mapi_1    |[0m debug: For more help:
+[36mapi_1    |[0m debug:  • https://sailsjs.com/config/session#?the-secure-flag
+[36mapi_1    |[0m debug:  • https://sailsjs.com/config/session#?do-i-need-an-ssl-certificate
+[36mapi_1    |[0m debug:  • https://sailsjs.com/config/sails-config-http#?properties
+[36mapi_1    |[0m debug:  • https://sailsjs.com/support
+[36mapi_1    |[0m debug: 
+[36mapi_1    |[0m Warning: connect.session() MemoryStore is not
+[36mapi_1    |[0m designed for a production environment, as it will leak
+[36mapi_1    |[0m memory, and will not scale past a single process.
+[36mapi_1    |[0m error: A hook (`orm`) failed to load!
+[36mapi_1    |[0m error: Could not tear down the ORM hook.  Error details: Error: Consistency violation: Attempting to tear down a datastore (`default`) which is not currently registered with this adapter.  This is usually due to a race condition in userland code (e.g. attempting to tear down the same ORM instance more than once), or it could be due to a bug in this adapter.  (If you get stumped, reach out at http://sailsjs.com/support.)
+[36mapi_1    |[0m     at Object.teardown (/home/node/app/node_modules/sails-mongo/lib/index.js:390:19)
+[36mapi_1    |[0m     at /home/node/app/node_modules/waterline/lib/waterline.js:758:27
+[36mapi_1    |[0m     at /home/node/app/node_modules/waterline/node_modules/async/dist/async.js:3047:20
+[36mapi_1    |[0m     at eachOfArrayLike (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:1002:13)
+[36mapi_1    |[0m     at eachOf (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:1052:9)
+[36mapi_1    |[0m     at Object.eachLimit (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:3111:7)
+[36mapi_1    |[0m     at Object.teardown (/home/node/app/node_modules/waterline/lib/waterline.js:742:11)
+[36mapi_1    |[0m     at Hook.teardown (/home/node/app/node_modules/sails-hook-orm/index.js:246:30)
+[36mapi_1    |[0m     at Sails.wrapper (/home/node/app/node_modules/@sailshq/lodash/lib/index.js:3282:19)
+[36mapi_1    |[0m     at Object.onceWrapper (events.js:416:28)
+[36mapi_1    |[0m     at Sails.emit (events.js:310:20)
+[36mapi_1    |[0m     at Sails.emitter.emit (/home/node/app/node_modules/sails/lib/app/private/after.js:56:26)
+[36mapi_1    |[0m     at /home/node/app/node_modules/sails/lib/app/lower.js:67:11
+[36mapi_1    |[0m     at beforeShutdown (/home/node/app/node_modules/sails/lib/app/lower.js:45:12)
+[36mapi_1    |[0m     at Sails.lower (/home/node/app/node_modules/sails/lib/app/lower.js:49:3)
+[36mapi_1    |[0m     at Sails.wrapper [as lower] (/home/node/app/node_modules/@sailshq/lodash/lib/index.js:3282:19)
+[36mapi_1    |[0m error: Failed to lift app: Error: Invalid configuration for datastore `default`:  No `url` was specified, and no appropriate connection URL can be inferred (tried to use `host: undefined`).
+[36mapi_1    |[0m --
+[36mapi_1    |[0m Please specify a `host`...  Or better yet, specify a `url`!  (See http://sailsjs.com/config/datastores#?the-connection-url for more info.)
+[36mapi_1    |[0m     at Object.registerDatastore (/home/node/app/node_modules/sails-mongo/lib/index.js:209:58)
+[36mapi_1    |[0m     at /home/node/app/node_modules/waterline/lib/waterline.js:714:27
+[36mapi_1    |[0m     at /home/node/app/node_modules/waterline/node_modules/async/dist/async.js:3047:20
+[36mapi_1    |[0m     at eachOfArrayLike (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:1002:13)
+[36mapi_1    |[0m     at eachOf (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:1052:9)
+[36mapi_1    |[0m     at Object.eachLimit (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:3111:7)
+[36mapi_1    |[0m     at Object.initialize (/home/node/app/node_modules/waterline/lib/waterline.js:650:11)
+[36mapi_1    |[0m     at buildOntologyAndRunAutoMigrations (/home/node/app/node_modules/sails-hook-orm/lib/build-ontology-and-run-auto-migrations.js:55:7)
+[36mapi_1    |[0m     at async.auto._buildOntology (/home/node/app/node_modules/sails-hook-orm/lib/initialize.js:456:7)
+[36mapi_1    |[0m     at runTask (/home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:1660:17)
+[36mapi_1    |[0m     at /home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:1602:17
+[36mapi_1    |[0m     at processQueue (/home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:1612:17)
+[36mapi_1    |[0m     at taskComplete (/home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:1630:13)
+[36mapi_1    |[0m     at /home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:1653:21
+[36mapi_1    |[0m     at /home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:339:31
+[36mapi_1    |[0m     at /home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:847:20
+[32mapi_1    |[0m up to date in 15.059s
+[32mapi_1    |[0m 
+[32mapi_1    |[0m 15 packages are looking for funding
+[32mapi_1    |[0m   run `npm fund` for details
+[32mapi_1    |[0m 
+[32mapi_1    |[0m npm start
+[32mapi_1    |[0m 
+[32mapi_1    |[0m > note-api@0.0.0 start /home/node/app
+[32mapi_1    |[0m > NODE_ENV=production node app.js
+[32mapi_1    |[0m 
+[32mapi_1    |[0m debug: Please note: since `sails.config.session.cookie.secure` is set to `true`, the session cookie 
+[32mapi_1    |[0m debug: will _only_ be sent over TLS connections (i.e. secure https:// requests).
+[32mapi_1    |[0m debug: Requests made via http:// will not include a session cookie!
+[32mapi_1    |[0m debug: 
+[32mapi_1    |[0m debug: For more help:
+[32mapi_1    |[0m debug:  • https://sailsjs.com/config/session#?the-secure-flag
+[32mapi_1    |[0m debug:  • https://sailsjs.com/config/session#?do-i-need-an-ssl-certificate
+[32mapi_1    |[0m debug:  • https://sailsjs.com/config/sails-config-http#?properties
+[32mapi_1    |[0m debug:  • https://sailsjs.com/support
+[32mapi_1    |[0m debug: 
+[32mapi_1    |[0m Warning: connect.session() MemoryStore is not
+[32mapi_1    |[0m designed for a production environment, as it will leak
+[32mapi_1    |[0m memory, and will not scale past a single process.
+[32mapi_1    |[0m error: A hook (`orm`) failed to load!
+[32mapi_1    |[0m error: Could not tear down the ORM hook.  Error details: Error: Consistency violation: Attempting to tear down a datastore (`default`) which is not currently registered with this adapter.  This is usually due to a race condition in userland code (e.g. attempting to tear down the same ORM instance more than once), or it could be due to a bug in this adapter.  (If you get stumped, reach out at http://sailsjs.com/support.)
+[32mapi_1    |[0m     at Object.teardown (/home/node/app/node_modules/sails-mongo/lib/index.js:390:19)
+[32mapi_1    |[0m     at /home/node/app/node_modules/waterline/lib/waterline.js:758:27
+[32mapi_1    |[0m     at /home/node/app/node_modules/waterline/node_modules/async/dist/async.js:3047:20
+[32mapi_1    |[0m     at eachOfArrayLike (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:1002:13)
+[32mapi_1    |[0m     at eachOf (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:1052:9)
+[32mapi_1    |[0m     at Object.eachLimit (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:3111:7)
+[32mapi_1    |[0m     at Object.teardown (/home/node/app/node_modules/waterline/lib/waterline.js:742:11)
+[32mapi_1    |[0m     at Hook.teardown (/home/node/app/node_modules/sails-hook-orm/index.js:246:30)
+[32mapi_1    |[0m     at Sails.wrapper (/home/node/app/node_modules/@sailshq/lodash/lib/index.js:3282:19)
+[32mapi_1    |[0m     at Object.onceWrapper (events.js:416:28)
+[32mapi_1    |[0m     at Sails.emit (events.js:310:20)
+[32mapi_1    |[0m     at Sails.emitter.emit (/home/node/app/node_modules/sails/lib/app/private/after.js:56:26)
+[32mapi_1    |[0m     at /home/node/app/node_modules/sails/lib/app/lower.js:67:11
+[32mapi_1    |[0m     at beforeShutdown (/home/node/app/node_modules/sails/lib/app/lower.js:45:12)
+[32mapi_1    |[0m     at Sails.lower (/home/node/app/node_modules/sails/lib/app/lower.js:49:3)
+[32mapi_1    |[0m     at Sails.wrapper [as lower] (/home/node/app/node_modules/@sailshq/lodash/lib/index.js:3282:19)
+[32mapi_1    |[0m error: Failed to lift app: Error: Invalid configuration for datastore `default`:  No `url` was specified, and no appropriate connection URL can be inferred (tried to use `host: undefined`).
+[32mapi_1    |[0m --
+[32mapi_1    |[0m Please specify a `host`...  Or better yet, specify a `url`!  (See http://sailsjs.com/config/datastores#?the-connection-url for more info.)
+[32mapi_1    |[0m     at Object.registerDatastore (/home/node/app/node_modules/sails-mongo/lib/index.js:209:58)
+[32mapi_1    |[0m     at /home/node/app/node_modules/waterline/lib/waterline.js:714:27
+[32mapi_1    |[0m     at /home/node/app/node_modules/waterline/node_modules/async/dist/async.js:3047:20
+[32mapi_1    |[0m     at eachOfArrayLike (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:1002:13)
+[32mapi_1    |[0m     at eachOf (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:1052:9)
+[32mapi_1    |[0m     at Object.eachLimit (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:3111:7)
+[32mapi_1    |[0m     at Object.initialize (/home/node/app/node_modules/waterline/lib/waterline.js:650:11)
+[32mapi_1    |[0m     at buildOntologyAndRunAutoMigrations (/home/node/app/node_modules/sails-hook-orm/lib/build-ontology-and-run-auto-migrations.js:55:7)
+[32mapi_1    |[0m     at async.auto._buildOntology (/home/node/app/node_modules/sails-hook-orm/lib/initialize.js:456:7)
+[32mapi_1    |[0m     at runTask (/home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:1660:17)
+[32mapi_1    |[0m     at /home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:1602:17
+[32mapi_1    |[0m     at processQueue (/home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:1612:17)
+[32mapi_1    |[0m     at taskComplete (/home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:1630:13)
+[32mapi_1    |[0m     at /home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:1653:21
+[32mapi_1    |[0m     at /home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:339:31
+[32mapi_1    |[0m     at /home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:847:20
+[36mnote-api_api_1 exited with code 0
+[0m[35mapi_1    |[0m up to date in 18.473s
+[35mapi_1    |[0m 
+[35mapi_1    |[0m 15 packages are looking for funding
+[35mapi_1    |[0m   run `npm fund` for details
+[35mapi_1    |[0m 
+[35mapi_1    |[0m npm start
+[35mapi_1    |[0m 
+[35mapi_1    |[0m > note-api@0.0.0 start /home/node/app
+[35mapi_1    |[0m > NODE_ENV=production node app.js
+[35mapi_1    |[0m 
+[35mapi_1    |[0m debug: Please note: since `sails.config.session.cookie.secure` is set to `true`, the session cookie 
+[35mapi_1    |[0m debug: will _only_ be sent over TLS connections (i.e. secure https:// requests).
+[35mapi_1    |[0m debug: Requests made via http:// will not include a session cookie!
+[35mapi_1    |[0m debug: 
+[35mapi_1    |[0m debug: For more help:
+[35mapi_1    |[0m debug:  • https://sailsjs.com/config/session#?the-secure-flag
+[35mapi_1    |[0m debug:  • https://sailsjs.com/config/session#?do-i-need-an-ssl-certificate
+[35mapi_1    |[0m debug:  • https://sailsjs.com/config/sails-config-http#?properties
+[35mapi_1    |[0m debug:  • https://sailsjs.com/support
+[35mapi_1    |[0m debug: 
+[35mapi_1    |[0m Warning: connect.session() MemoryStore is not
+[35mapi_1    |[0m designed for a production environment, as it will leak
+[35mapi_1    |[0m memory, and will not scale past a single process.
+[35mapi_1    |[0m error: A hook (`orm`) failed to load!
+[35mapi_1    |[0m error: Could not tear down the ORM hook.  Error details: Error: Consistency violation: Attempting to tear down a datastore (`default`) which is not currently registered with this adapter.  This is usually due to a race condition in userland code (e.g. attempting to tear down the same ORM instance more than once), or it could be due to a bug in this adapter.  (If you get stumped, reach out at http://sailsjs.com/support.)
+[35mapi_1    |[0m     at Object.teardown (/home/node/app/node_modules/sails-mongo/lib/index.js:390:19)
+[35mapi_1    |[0m     at /home/node/app/node_modules/waterline/lib/waterline.js:758:27
+[35mapi_1    |[0m     at /home/node/app/node_modules/waterline/node_modules/async/dist/async.js:3047:20
+[35mapi_1    |[0m     at eachOfArrayLike (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:1002:13)
+[35mapi_1    |[0m     at eachOf (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:1052:9)
+[35mapi_1    |[0m     at Object.eachLimit (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:3111:7)
+[35mapi_1    |[0m     at Object.teardown (/home/node/app/node_modules/waterline/lib/waterline.js:742:11)
+[35mapi_1    |[0m     at Hook.teardown (/home/node/app/node_modules/sails-hook-orm/index.js:246:30)
+[35mapi_1    |[0m     at Sails.wrapper (/home/node/app/node_modules/@sailshq/lodash/lib/index.js:3282:19)
+[35mapi_1    |[0m     at Object.onceWrapper (events.js:416:28)
+[35mapi_1    |[0m     at Sails.emit (events.js:310:20)
+[35mapi_1    |[0m     at Sails.emitter.emit (/home/node/app/node_modules/sails/lib/app/private/after.js:56:26)
+[35mapi_1    |[0m     at /home/node/app/node_modules/sails/lib/app/lower.js:67:11
+[35mapi_1    |[0m     at beforeShutdown (/home/node/app/node_modules/sails/lib/app/lower.js:45:12)
+[35mapi_1    |[0m     at Sails.lower (/home/node/app/node_modules/sails/lib/app/lower.js:49:3)
+[35mapi_1    |[0m     at Sails.wrapper [as lower] (/home/node/app/node_modules/@sailshq/lodash/lib/index.js:3282:19)
+[35mapi_1    |[0m error: Failed to lift app: Error: Invalid configuration for datastore `default`:  No `url` was specified, and no appropriate connection URL can be inferred (tried to use `host: undefined`).
+[35mapi_1    |[0m --
+[35mapi_1    |[0m Please specify a `host`...  Or better yet, specify a `url`!  (See http://sailsjs.com/config/datastores#?the-connection-url for more info.)
+[35mapi_1    |[0m     at Object.registerDatastore (/home/node/app/node_modules/sails-mongo/lib/index.js:209:58)
+[35mapi_1    |[0m     at /home/node/app/node_modules/waterline/lib/waterline.js:714:27
+[35mapi_1    |[0m     at /home/node/app/node_modules/waterline/node_modules/async/dist/async.js:3047:20
+[35mapi_1    |[0m     at eachOfArrayLike (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:1002:13)
+[35mapi_1    |[0m     at eachOf (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:1052:9)
+[35mapi_1    |[0m     at Object.eachLimit (/home/node/app/node_modules/waterline/node_modules/async/dist/async.js:3111:7)
+[35mapi_1    |[0m     at Object.initialize (/home/node/app/node_modules/waterline/lib/waterline.js:650:11)
+[35mapi_1    |[0m     at buildOntologyAndRunAutoMigrations (/home/node/app/node_modules/sails-hook-orm/lib/build-ontology-and-run-auto-migrations.js:55:7)
+[35mapi_1    |[0m     at async.auto._buildOntology (/home/node/app/node_modules/sails-hook-orm/lib/initialize.js:456:7)
+[35mapi_1    |[0m     at runTask (/home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:1660:17)
+[35mapi_1    |[0m     at /home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:1602:17
+[35mapi_1    |[0m     at processQueue (/home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:1612:17)
+[35mapi_1    |[0m     at taskComplete (/home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:1630:13)
+[35mapi_1    |[0m     at /home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:1653:21
+[35mapi_1    |[0m     at /home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:339:31
+[35mapi_1    |[0m     at /home/node/app/node_modules/sails-hook-orm/node_modules/async/dist/async.js:847:20
